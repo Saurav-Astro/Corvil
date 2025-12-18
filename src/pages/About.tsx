@@ -9,12 +9,12 @@ const About = () => {
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
       transition={{ duration: 0.5 }}
-      className="bg-background min-h-screen"
+      className="bg-black/60 min-h-screen"
     >
       <Navigation />
       <div className="pt-32">
         {/* Our Identity */}
-        <section className="section-padding bg-background">
+        <section className="section-padding bg-black/45">
           <div className="container-narrow text-center">
             <h1 className="font-heading text-4xl md:text-5xl text-foreground mb-6">We Build the Engines of Modern Business.</h1>
             <p className="text-muted-foreground text-lg md:text-xl max-w-3xl mx-auto">
@@ -24,7 +24,7 @@ const About = () => {
         </section>
 
         {/* Our Approach */}
-        <section className="section-padding bg-gradient-section">
+        <section className="section-padding bg-gradient-to-b from-black/30 via-black/45 to-black/60">
           <div className="container-wide">
             <h2 className="font-heading text-3xl text-foreground mb-6">Our Approach</h2>
             <div className="grid md:grid-cols-3 gap-8">
@@ -40,7 +40,7 @@ const About = () => {
         </section>
 
         {/* No Hype Promise */}
-        <section className="section-padding bg-background">
+        <section className="section-padding bg-black/45">
           <div className="container-narrow text-center">
             <h2 className="font-heading text-3xl text-foreground mb-4">The "No Hype" Promise</h2>
             <p className="text-muted-foreground text-lg md:text-xl max-w-3xl mx-auto">

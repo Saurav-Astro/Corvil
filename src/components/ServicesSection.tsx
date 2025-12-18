@@ -1,6 +1,7 @@
 import { motion, useInView } from 'framer-motion';
 import { useRef } from 'react';
 import { Globe, AppWindow, Brain, Boxes, PhoneCall } from 'lucide-react';
+import { HoverEffect } from '@/components/ui/hover-effect';
 
 const services = [
   {
@@ -35,37 +36,37 @@ const ServicesSection = () => {
   const isInView = useInView(ref, { once: true, margin: '-100px' });
 
   return (
-    <section ref={ref} className="section-padding bg-gradient-section">
-      <div className="container-wide">
+    <section
+      ref={ref}
+      className="section-padding relative overflow-hidden bg-gradient-to-b from-black/30 via-black/45 to-black/60"
+    >
+      <div className="pointer-events-none absolute inset-0 opacity-50">
+        <div className="absolute -left-24 top-10 h-64 w-64 rounded-full bg-accent/20 blur-3xl" />
+        <div className="absolute -right-20 bottom-10 h-72 w-72 rounded-full bg-foreground/10 blur-3xl" />
+      </div>
+      <div className="container-wide relative">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+          className="text-center mb-12"
         >
-          <span className="text-sm tracking-[0.3em] text-muted-foreground uppercase block mb-6">
-            Services
-          </span>
-          <h2 className="font-heading text-4xl md:text-5xl text-foreground">
+          <h2 className="font-heading text-4xl md:text-5xl text-foreground mb-3">
             What We Build
           </h2>
+          <div className="flex justify-center">
+            <span className="h-px w-24 bg-gradient-to-r from-transparent via-accent to-transparent" />
+          </div>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10">
-          {services.map((s, index) => (
-            <motion.div
-              key={s.title}
-              initial={{ opacity: 0, y: 30 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.6, delay: index * 0.1 }}
-              className="p-6 border border-border bg-background/40 hover:bg-background/60 transition-colors duration-300"
-            >
-              <s.icon className="w-7 h-7 text-accent mb-4" />
-              <h3 className="font-heading text-xl text-foreground mb-2">{s.title}</h3>
-              <p className="text-muted-foreground leading-relaxed">{s.description}</p>
-            </motion.div>
-          ))}
-        </div>
+        <HoverEffect
+          items={services.map((s) => ({
+            title: s.title,
+            description: s.description,
+            link: '/contact',
+          }))}
+          className="py-0"
+        />
       </div>
     </section>
   );

@@ -8,7 +8,6 @@ import { useToast } from '@/components/ui/use-toast';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Label } from '@/components/ui/label';
-import { Select } from '@/components/ui/select';
 import { Button } from '@/components/ui/button';
 
 const Contact = () => {
@@ -36,18 +35,18 @@ const Contact = () => {
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
       transition={{ duration: 0.5 }}
-      className="bg-background min-h-screen"
+      className="bg-black/60 min-h-screen"
     >
       <Navigation />
       <div className="pt-32">
         {/* Heading */}
-        <section className="section-padding bg-background text-center">
+        <section className="section-padding bg-black/45 text-center">
           <h1 className="font-heading text-4xl md:text-5xl text-foreground mb-3">Let’s Build Something Efficient.</h1>
           <p className="text-muted-foreground text-lg md:text-xl">Ready to automate your operations or build your next big idea? Reach out today.</p>
         </section>
 
         {/* Form */}
-        <section className="section-padding bg-gradient-section">
+        <section className="section-padding bg-gradient-to-b from-black/30 via-black/45 to-black/60">
           <div className="container-narrow">
             <form onSubmit={handleSubmit(onSubmit)} className="grid gap-6">
               <div>
@@ -62,14 +61,18 @@ const Contact = () => {
               </div>
               <div>
                 <Label htmlFor="interest">Service of Interest</Label>
-                <Select id="interest" {...register('interest')}>
+                <select
+                  id="interest"
+                  className="mt-1 w-full rounded-md border border-border bg-background px-3 py-2 text-foreground"
+                  {...register('interest')}
+                >
                   <option value="">Select…</option>
                   <option value="AI Automation">AI Automation</option>
                   <option value="Web Development">Web Development</option>
                   <option value="Tech Consulting">Tech Consulting</option>
                   <option value="MVP Development">MVP Development</option>
                   <option value="Other">Other</option>
-                </Select>
+                </select>
                 {errors.interest && <p className="text-red-500 text-sm mt-1">Please select a service</p>}
               </div>
               <div>
@@ -83,7 +86,7 @@ const Contact = () => {
         </section>
 
         {/* Details */}
-        <section className="section-padding bg-background">
+        <section className="section-padding bg-black/45">
           <div className="container-narrow text-center">
             <div className="space-y-2 mb-6">
               <p className="text-foreground">Email: [Insert Email Address]</p>
