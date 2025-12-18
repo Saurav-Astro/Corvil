@@ -9,6 +9,7 @@ import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Label } from '@/components/ui/label';
 import { Button } from '@/components/ui/button';
+import { ExternalLink, Linkedin, Instagram, MessageCircle, Twitter } from 'lucide-react';
 
 const Contact = () => {
   const schema = z.object({
@@ -91,8 +92,74 @@ const Contact = () => {
             <div className="space-y-2 mb-6">
               <p className="text-foreground">Email: [Insert Email Address]</p>
               <p className="text-foreground">Office Hours: Monday – Friday, 9:00 AM – 6:00 PM</p>
-              <p className="text-foreground">Social: LinkedIn</p>
             </div>
+
+            <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4 mb-8">
+              <a
+                href="https://x.com/coreveilagency?s=11"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group flex items-center justify-between gap-3 rounded-xl border border-white/10 bg-white/5 px-4 py-3 hover:border-white/30 hover:bg-white/10 transition-colors"
+              >
+                <div className="flex items-center gap-3 text-left">
+                  <Twitter className="w-5 h-5 text-accent" />
+                  <div>
+                    <p className="text-sm font-semibold text-foreground">Follow on X</p>
+                    <p className="text-xs text-muted-foreground">@coreveilagency</p>
+                  </div>
+                </div>
+                <ExternalLink className="w-4 h-4 text-muted-foreground group-hover:text-foreground" />
+              </a>
+
+              <a
+                href="https://www.instagram.com/core.veil?igsh=MThzcGs2M3Bkamx3Mg%3D%3D&utm_source=qr"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group flex items-center justify-between gap-3 rounded-xl border border-white/10 bg-white/5 px-4 py-3 hover:border-white/30 hover:bg-white/10 transition-colors"
+              >
+                <div className="flex items-center gap-3 text-left">
+                  <Instagram className="w-5 h-5 text-accent" />
+                  <div>
+                    <p className="text-sm font-semibold text-foreground">Instagram</p>
+                    <p className="text-xs text-muted-foreground">@core.veil</p>
+                  </div>
+                </div>
+                <ExternalLink className="w-4 h-4 text-muted-foreground group-hover:text-foreground" />
+              </a>
+
+              <a
+                href="https://wa.me/message/OVPH6OOZQNIOB1"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group flex items-center justify-between gap-3 rounded-xl border border-white/10 bg-white/5 px-4 py-3 hover:border-white/30 hover:bg-white/10 transition-colors"
+              >
+                <div className="flex items-center gap-3 text-left">
+                  <MessageCircle className="w-5 h-5 text-accent" />
+                  <div>
+                    <p className="text-sm font-semibold text-foreground">WhatsApp</p>
+                    <p className="text-xs text-muted-foreground">Message our team</p>
+                  </div>
+                </div>
+                <ExternalLink className="w-4 h-4 text-muted-foreground group-hover:text-foreground" />
+              </a>
+
+              <a
+                href="https://www.linkedin.com/company/coreveil/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group flex items-center justify-between gap-3 rounded-xl border border-white/10 bg-white/5 px-4 py-3 hover:border-white/30 hover:bg-white/10 transition-colors"
+              >
+                <div className="flex items-center gap-3 text-left">
+                  <Linkedin className="w-5 h-5 text-accent" />
+                  <div>
+                    <p className="text-sm font-semibold text-foreground">LinkedIn</p>
+                    <p className="text-xs text-muted-foreground">Connect with Coreveil</p>
+                  </div>
+                </div>
+                <ExternalLink className="w-4 h-4 text-muted-foreground group-hover:text-foreground" />
+              </a>
+            </div>
+
             <p className="text-muted-foreground">We typically respond to all inquiries within 24 business hours. Let’s discuss how we can scale your business through modern technology.</p>
           </div>
         </section>
