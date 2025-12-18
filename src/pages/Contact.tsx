@@ -90,8 +90,8 @@ const Contact = () => {
         <section className="section-padding bg-black/45">
           <div className="container-narrow text-center">
             <div className="space-y-2 mb-6">
-              <p className="text-foreground">Email: [Insert Email Address]</p>
-              <p className="text-foreground">Office Hours: Monday – Friday, 9:00 AM – 6:00 PM</p>
+              <p className="text-foreground">Prefer a direct chat? Reach us on the channels below.</p>
+              <p className="text-muted-foreground">We typically reply within one business day.</p>
             </div>
 
             <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4 mb-8">
