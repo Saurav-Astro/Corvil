@@ -1,73 +1,70 @@
-# Welcome to your Lovable project
+# Coreveil – AI Automation & Engineering Site
 
-## Project info
+Marketing site for Coreveil with Home, Services, About, and Contact pages. Built with Vite + React + TypeScript, Tailwind, shadcn-ui, and Framer Motion, featuring hover-driven cards, a persistent hero cover background, and a validated contact form.
 
-**URL**: https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID
+## Features
+- Global hero background with softened gradient overlay for all routes.
+- HoverEffect card grids for “Who We Serve,” “At a Glance,” and “What We Build.”
+- Animated sections (Framer Motion) and responsive layout.
+- Contact form with zod + react-hook-form validation and toast feedback.
+- shadcn-ui component foundation and lucide icons for consistent UI.
 
-## How can I edit this code?
+## Tech Stack
+- Vite, React 18, TypeScript
+- Tailwind CSS, shadcn-ui, Radix primitives
+- Framer Motion, React Router
+- TanStack Query, zod, react-hook-form
 
-There are several ways of editing your application.
+## Getting Started
+Prerequisites: Node.js 18+ and npm.
 
-**Use Lovable**
-
-Simply visit the [Lovable Project](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and start prompting.
-
-Changes made via Lovable will be committed automatically to this repo.
-
-**Use your preferred IDE**
-
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
-
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
-
-Follow these steps:
-
+Install dependencies:
 ```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+npm install
+```
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
+Run the dev server:
+```sh
 npm run dev
 ```
 
-**Edit a file directly in GitHub**
+Build for production:
+```sh
+npm run build
+```
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+Preview the production build locally:
+```sh
+npm run preview
+```
 
-**Use GitHub Codespaces**
+Lint:
+```sh
+npm run lint
+```
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+## Project Structure
+- src/pages: Page-level routes (Index, Services, About, Contact, NotFound).
+- src/components: Layout and sections (Navigation, HeroSection, ServicesSection, Footer, GlobalCoverBackground).
+- src/components/ui: Shared UI primitives including HoverEffect and toaster.
+- src/assets: Static assets (hero background, etc.).
+- src/lib: Utilities (class helpers).
 
-## What technologies are used for this project?
+## Styling & UX Notes
+- Tailwind for utility styling; shadcn-ui for consistent components.
+- Global cover image with lighter overlay to keep imagery visible behind content.
+- HoverEffect cards give linked, router-friendly tiles with animated highlights.
+- Sections use subtle gradients and blur to keep text legible while showing the background.
 
-This project is built with:
+## Deployment
+- Build with `npm run build` and host the `dist` output on your platform of choice (e.g., Netlify, Vercel, S3/CloudFront).
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+## Scripts
+- `npm run dev` – start dev server
+- `npm run build` – production build
+- `npm run build:dev` – development-mode build
+- `npm run preview` – preview built site
+- `npm run lint` – run ESLint
 
-## How can I deploy this project?
-
-Simply open [Lovable](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and click on Share -> Publish.
-
-## Can I connect a custom domain to my Lovable project?
-
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+## Contributing
+Pull requests are welcome. Please run `npm run lint` and `npm run build` before submitting changes.
