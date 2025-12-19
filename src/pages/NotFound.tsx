@@ -18,10 +18,10 @@ const NotFound = () => {
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
       transition={{ duration: 0.5 }}
-      className="bg-black/60 min-h-screen"
+      className="bg-black/60 min-h-screen flex flex-col overflow-hidden"
     >
       <Navigation />
-      <section className="relative min-h-screen flex items-center justify-center px-6 pt-32">
+      <section className="relative flex-1 flex items-center justify-center px-6">
       <div className="pointer-events-none absolute inset-0 -z-20 top-0">
         <img src={heroBg} alt="Coreveil cover" className="h-full w-full object-cover" />
       </div>
