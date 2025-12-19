@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X } from 'lucide-react';
+import coreveilLogo from '../assets/coreveil.png';
 
 const Navigation = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -33,8 +34,8 @@ const Navigation = () => {
       }`}
     >
       <div className="container-wide flex items-center justify-between">
-        <Link to="/" className="text-foreground font-heading text-xl tracking-widest">
-          COREVEIL
+        <Link to="/" className="flex items-center">
+          <img src={coreveilLogo} alt="Coreveil" className="h-10 w-auto" />
         </Link>
 
         {/* Desktop Navigation */}
