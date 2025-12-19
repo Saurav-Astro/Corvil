@@ -1,26 +1,42 @@
-import { useLocation, Link } from "react-router-dom";
-import { useEffect } from "react";
-import heroBg from "@/assets/hero-bg.jpg";
+import Navigation from '@/components/Navigation';
+import Footer from '@/components/Footer';
+import { useLocation, Link } from 'react-router-dom';
+import { useEffect } from 'react';
+import { motion } from 'framer-motion';
+import heroBg from '@/assets/hero-bg.jpg';
 
 const NotFound = () => {
   const location = useLocation();
 
   useEffect(() => {
-    console.error("404 Error: User attempted to access non-existent route:", location.pathname);
+    console.error('404 Error: User attempted to access non-existent route:', location.pathname);
   }, [location.pathname]);
 
   return (
-    <div className="relative min-h-screen flex items-center justify-center bg-black/70 px-6">
-      <div className="pointer-events-none absolute inset-0 -z-20">
+    <motion.main
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      transition={{ duration: 0.5 }}
+      className="bg-black/60 min-h-screen"
+    >
+      <Navigation />
+      <section className="relative min-h-screen flex items-center justify-center px-6 pt-32">
+      <div className="pointer-events-none absolute inset-0 -z-20 top-0">
         <img src={heroBg} alt="Coreveil cover" className="h-full w-full object-cover" />
       </div>
-      <div className="pointer-events-none absolute inset-0 -z-10">
+      <div className="pointer-events-none absolute inset-0 -z-10 top-0">
         <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-black/55 to-black/75" />
         <div className="absolute -left-24 top-16 h-64 w-64 rounded-full bg-accent/15 blur-3xl" />
         <div className="absolute -right-20 bottom-16 h-72 w-72 rounded-full bg-foreground/10 blur-3xl" />
       </div>
 
-      <div className="max-w-xl w-full text-center space-y-6 bg-black/40 border border-white/5 backdrop-blur-md rounded-3xl p-10 shadow-2xl">
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6 }}
+        className="max-w-xl w-full text-center space-y-6 bg-black/40 border border-white/5 backdrop-blur-md rounded-3xl p-10 shadow-2xl"
+      >
         <div className="flex items-center justify-center gap-3 text-accent font-heading text-sm tracking-[0.25em] uppercase">
           <span>Coreveil</span>
           <span className="h-px w-10 bg-accent/60" />
@@ -44,8 +60,10 @@ const NotFound = () => {
             View Services
           </Link>
         </div>
-      </div>
-    </div>
+        </motion.div>
+      </section>
+      <Footer />
+    </motion.main>
   );
 };
 
