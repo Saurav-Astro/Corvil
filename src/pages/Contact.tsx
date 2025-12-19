@@ -4,6 +4,8 @@ import { motion } from 'framer-motion';
 import { useForm } from 'react-hook-form';
 import { z } from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
+import emailjs from '@emailjs/browser';
+import { useEffect } from 'react';
 import { useToast } from '@/components/ui/use-toast';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
@@ -23,11 +25,54 @@ const Contact = () => {
   const { toast } = useToast();
   const { register, handleSubmit, reset, formState: { errors, isSubmitting } } = useForm<FormValues>({ resolver: zodResolver(schema) });
 
+  const sanitize = (value?: string) => value?.trim() || '';
+  const serviceId = sanitize(import.meta.env.VITE_EMAILJS_SERVICE_ID);
+  const templateId = sanitize(import.meta.env.VITE_EMAILJS_TEMPLATE_ID);
+  const publicKey = sanitize(import.meta.env.VITE_EMAILJS_PUBLIC_KEY);
+
+  useEffect(() => {
+    if (publicKey) {
+      emailjs.init(publicKey);
+    }
+  }, [publicKey]);
+
   const onSubmit = async (values: FormValues) => {
-    // Simulate send
-    await new Promise(r => setTimeout(r, 600));
-    toast({ title: 'Message sent', description: 'We typically respond within 24 business hours.' });
-    reset();
+    const missing = [
+      { label: 'VITE_EMAILJS_SERVICE_ID', value: serviceId },
+      { label: 'VITE_EMAILJS_TEMPLATE_ID', value: templateId },
+      { label: 'VITE_EMAILJS_PUBLIC_KEY', value: publicKey },
+    ].filter((item) => !item.value);
+
+    if (missing.length) {
+      toast({
+        title: 'Send failed',
+        description: `Missing config: ${missing.map((m) => m.label).join(', ')}`,
+        variant: 'destructive',
+      });
+      return;
+    }
+
+    const formattedTime = new Date().toLocaleString('en-US', {
+      month: 'short',
+      day: 'numeric',
+      year: 'numeric',
+      hour: 'numeric',
+      minute: '2-digit',
+      hour12: true,
+    });
+
+    try {
+      await emailjs.send(serviceId, templateId, {
+        ...values,
+        service: values.interest,
+        time: formattedTime,
+      });
+      toast({ title: 'Message sent', description: 'We typically respond within 24 business hours.' });
+      reset();
+    } catch (error) {
+      console.error('EmailJS send failed', error);
+      toast({ title: 'Send failed', description: 'Could not send your message. Please try again.', variant: 'destructive' });
+    }
   };
 
   return (

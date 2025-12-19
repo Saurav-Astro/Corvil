@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import heroBg from '@/assets/hero-bg.jpg';
+import coreveilLogo from '@/assets/coreveil.png';
 
 const HeroSection = () => {
   return (
@@ -23,9 +24,7 @@ const HeroSection = () => {
           transition={{ duration: 1, delay: 0.3 }}
           className="mb-6"
         >
-          <span className="text-sm md:text-base tracking-[0.3em] text-muted-foreground uppercase">
-            Coreveil
-          </span>
+          <img src={coreveilLogo} alt="Coreveil" className="h-16 w-auto mx-auto" />
         </motion.div>
 
         <motion.h1
